@@ -2,7 +2,7 @@ presentation.pdf: presentation.dvi
 	$(RM) presentation.pdf
 	dvipdf presentation.dvi
 
-presentation.dvi: presentation.tex bibliography presentation.bbl
+presentation.dvi: presentation.tex bibliography
 	latex presentation.tex
 
 bibliography: swt.bib
