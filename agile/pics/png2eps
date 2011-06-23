@@ -30,7 +30,7 @@ CHK=`pngcheck -v $1`
 # get height in pixels from the PNG file
 HEIGHT=`echo $CHK | sed -ne 's/.* [0-9]\+ x \(.*\) image.*/\1/p;'`
 
-# a rowsperstrip parameter of 'height' (or more) is needed to generate one 
+# a rowsperstrip parameter of 'height' (or more) is needed to generate one
 # single strip of data in the TIFF file (reduces file size)
 ROWSPERSTRIP="-rowsperstrip $HEIGHT"
 # ROWSPERSTRIP="rowsperstrip 1000000"
@@ -68,7 +68,7 @@ fi
 
 # convert to tiff
 pngtopnm -verbose -text $TXTFILE $1 | \
-pnmtotiff $ROWSPERSTRIP $RES $COMPRESS -indexbits=1,2,4,8 >$OUTFILE
+pnmtotiff $ROWSPERSTRIP $RES $COMPRESS > $OUTFILE
 
 # get the title of the figure
 TITLE="`sed -ne 's/^Title *\(.*\)/\1/p;' <$TXTFILE`"

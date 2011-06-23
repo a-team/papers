@@ -1,5 +1,6 @@
 % sample.tex
 \documentclass[pdf,swa,slideBW,nocolorBG,nototal]{prosper}
+% \usepackage[dvips]{geometry}
 %\usepackage{ngerman}
 \usepackage{graphicx}
 \usepackage{wrapfig, rotating}
@@ -24,35 +25,12 @@
   \includegraphics[width=\linewidth]{pics/sdide_intro}
 \end{slide}
 
-% \overlays{2}{%
-% \begin{slide}{Demo}
-%   \begin{itemize}
-%   \item During its lifetime an object is \ldots
-%     \begin{itemize}
-%     \item created from a class,
-%     \item referenced in different contexts,
-%     \item called upon,
-%     \item and modified.
-%     \end{itemize}
-%   \end{itemize}
-%   \fromSlide{2}{%
-%   \begin{itemize}
-%     \item The call graph tracer is a way to ask questions
-%     \begin{itemize}
-%     \item Where did this object come from?
-%     \item Who calls it and when?
-%     \item Where and how is it modified?
-%     \item How does it arrive at a particular point?
-%     \end{itemize}
-%   \end{itemize}}
-% \end{slide}}
-
 \begin{slide}{Agenda}
   \begin{itemize}
   \item Come again (Previously, on Agile-SD-1)
+  \item Improved Tests (Return of Readability)
   \item Developer Stories (A New Scope)
   \item Different Visions (Research Strikes Back)
-  \item Improved Tests (Return of Readability)
   \end{itemize}
 \end{slide}
 
@@ -73,79 +51,123 @@
 \end{slide}
 }
 
-% \overlays{4}{%
-% \begin{slide}{Tests}
-%   \begin{itemize}
-%   \item Tests were developed in parallel to the implementation
-%     \fromSlide{2}{%
-%       \begin{itemize}
-%       \item As a quicker workspace
-%       \item To run examples quickly
-%       \fromSlide{3}{%
-%       \item \ldots, but not to test user stories}
-%     \end{itemize}}
-%   \fromSlide{4}{%
-%   \item $\Rightarrow$ It's hard to write tests in the beginning}
-%   \end{itemize}
-% \end{slide}}
+\begin{slide}{Tests - First Contact}
+  \parbox[t]{0.6\textwidth}{%
+    \vspace*{2.5cm}
+    \hspace*{7cm}
+    \begin{rotate}{353}
+      \includegraphics[width=0.7\linewidth]{pics/workspace_test}
+    \end{rotate}}
+  \begin{itemize}
+  \item Hard to ``test-ahead''
+  \item Tests developed in parallel with implementation
+  \item Code-first $\Rightarrow$ hard to test code
+  \item First test were hard to read
+  \end{itemize}
+\end{slide}
 
-% \begin{slide}{Tests}
-%   \begin{minipage}{0.6\linewidth}
-%     \begin{centering}
-%       \includegraphics[width=\linewidth]{pics/workspace_test}
-%     \end{centering}
-%   \end{minipage}
-%   \begin{minipage}{0.3\linewidth}
-%     \raggedright{Note the {\bf \#explore} at the bottom}
-%   \end{minipage}
-% \end{slide}
+\begin{slide}{Tests - Ensuring Traceability}
+  \parbox[t]{0.6\textwidth}{%
+    \vspace*{2.5cm}
+    \hspace*{4cm}
+    \begin{rotate}{353}
+      \includegraphics[width=1.3\linewidth]{pics/good_test}
+    \end{rotate}}
+  \vspace*{1.5cm}
+  \begin{itemize}
+  \item Forcing ourselves to write {\sc X} tests for each story card
+    \begin{itemize}
+    \item More readable tests
+    \item More consistent {\sc API}
+    \item Better estimates
+    \end{itemize}
+  \end{itemize}
+\end{slide}
 
-% \overlays{3}{%
-% \begin{slide}{Problems with testing}
-%   \begin{itemize}
-%   \item Criticism from the customer after first sprint
-%   \fromSlide{2}{%
-%     \begin{itemize}
-%     \item Tests are hard to understand
-%     \item Tests are not easily matched to user stories
-%     \end{itemize}
-%   }
-%   \end{itemize}
-%   \fromSlide{3}{%
-%     \raggedleft{\includegraphics[width=0.8\linewidth]{pics/bad_tests}}
-%   }
-% \end{slide}}
+\begin{slide}{Tests - Run, Code, Run}
+  \centering
+  \includegraphics[width=\linewidth]{pics/ci}
+  \begin{itemize}
+  \item Continuous Integration
+  \end{itemize}
+\end{slide}
 
-% \overlays{2}{%
-% \begin{slide}{Problems with testing}
-%   \begin{itemize}
-%   \item For the second sprint we started with implementing the tests
-%     first, \ldots
-%     \begin{itemize}
-%     \item \ldots but then decided to re-implement based on different code.
-%     \end{itemize}
-%   \fromSlide{2}{%
-%   \item At the end of Sprint \#2, we don't have tests for all functionality}
-%   \end{itemize}
-% \end{slide}}
+\overlays{2}{%
+\begin{slide}{User Stories - There are never enough}
+  \begin{itemize}
+  \item Customer is constrained
+    \begin{itemize}
+    \item Has different projects
+    \item Doesn't have time to think up stories every other week
+    \item Needs old stories for context
+    \end{itemize}
+  \fromSlide{2}{%
+  \item Building a backlog is important
+    \begin{itemize}
+    \item Clearer heading
+    \item More choice = more freedom
+    \end{itemize}}
+  \end{itemize}
+\end{slide}}
 
-% \begin{slide}{Conclusions}
-%   \begin{itemize}
-%   \item We're doing well estimating overall time
-%     \begin{itemize}
-%     \item The first sprint we managed to implement all, the second
-%       half the stories
-%     \item Our estimates were off on the work required to acquaint
-%       ourselves with the framework
-%     \item Tickets, as well as stories, would be nice to track that
-%       ``additional work''
-%     \end{itemize}
-%   \item We need to track our time per story more closely to get better
-%     on that granularity, too
-%   \item We have to be more stringent with {\bf ``test first''}
-%   \item We need tests to begin with
-%   \end{itemize}
-% \end{slide}
+\begin{slide}{User Stories - {\sc DIY}}
+  \begin{itemize}
+  \item ``Make it your project''
+    \begin{itemize}
+    \item We tried to analyze existing projects
+    \item We came up with stories of our own
+    \end{itemize}
+  \item Start to think
+    \begin{itemize}
+    \item The customer wants a solution, not a better description of
+      the problem
+    \item Come up with (mutually exclusive) alternatives
+    \end{itemize}
+  \end{itemize}
+\end{slide}
+
+\overlays{3}{%
+\begin{slide}{Different Visions - It's about scope}
+  \fromSlide{2}{%
+  {\bf Customer}
+  \begin{itemize}
+  \item Wants as much as possible
+  \item Avoids restricting the project scope
+  \item Expects steady progress
+  \end{itemize}}
+  \fromSlide{3}{%
+  {\bf Developer}
+  \begin{itemize}
+  \item Wants small, clean, isolated task modules
+  \item Tries to narrow down desired scope
+  \item Motivates himself on steady progress
+  \end{itemize}}
+\end{slide}}
+
+\overlays{3}{%
+\begin{slide}{Different Visions - Force your customer}
+  \begin{itemize}
+  \item Developer-supplied stories revealed different visions
+  \item Mockups helped talking about ideas
+  \fromSlide{2}{%
+    \hspace*{1cm}
+    \includegraphics[width=0.7\linewidth]{pics/mockups}
+  }
+  \item The customer was forced to restrict scope
+  \fromSlide{3}{%
+  \item \Large{Great Success!}}
+  \end{itemize}
+\end{slide}}
+
+\begin{slide}{Conclusions}
+  \begin{itemize}
+  \item We're understanding our customer's problem better
+  \item Still trying to figure out how to track non-story work
+    {\footnotesize (like this presentation)}
+  \item We've gotten good at ``test first'' --- just needed to sit
+    down and do-it\texttrademark
+  \end{itemize}
+\end{slide}
 
 \begin{slide}{}
   \nocite{*}
